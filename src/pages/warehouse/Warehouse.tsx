@@ -3,7 +3,7 @@ import DataTable from "../../components/dataTable/DataTable";
 import "./warehouse.scss";
 import { useState } from "react";
 import Add from "../../components/add/Add";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { fetchWarehouses } from "../../api/warehouses";
 
 const columns: GridColDef[] = [
@@ -50,7 +50,7 @@ const columns: GridColDef[] = [
 const Warehouses = () => {
   const [open, setOpen] = useState(false);
 
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
 
   const { data, error, isLoading } = useQuery(['warehouses'], fetchWarehouses, {
     staleTime: 5 * 60 * 1000, // Dữ liệu sẽ stale sau 5 phút
